@@ -281,7 +281,7 @@
 
     <main>
       <!-- products -->
-      <section class="my-30 max-w-300 mx-auto ">
+      <section class="my-30 max-w-300 mx-auto">
         <!-- Product Grid -->
         <div
           id="product-grid"
@@ -293,18 +293,72 @@
       <!-- about -->
       <section></section>
       <!-- Frequently Asked Questions -->
-      <section></section>
+      <section class="w-full bg-base-200 px-4 pt-14 pb-24">
+        <div class="mx-auto max-w-3xl">
+          <h2
+            class="mb-8 text-center text-xl font-bold text-base-content sm:text-2xl"
+          >
+            Frequently Asked Questions
+          </h2>
+          <div
+            class="collapse collapse-arrow mb-2 rounded-2xl border border-base-300 bg-base-100"
+          >
+            <input type="checkbox" />
+            <div class="collapse-title text-sm font-semibold">
+              How does the user balance limit work?
+            </div>
+            <div
+              class="collapse-content text-sm leading-6 text-base-content/70"
+            >
+              The user balance limit determines the maximum amount a user can
+              hold in their account at a time.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-arrow mb-2 rounded-2xl border border-base-300 bg-base-100"
+          >
+            <input type="checkbox" />
+            <div class="collapse-title text-sm font-semibold">
+              Which coupon is valid?
+            </div>
+            <div
+              class="collapse-content text-sm leading-6 text-base-content/70"
+            >
+              You can apply a valid coupon during checkout to receive the
+              available discount. Make sure the coupon has not expired.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-arrow rounded-2xl border border-base-300 bg-base-100"
+          >
+            <input type="checkbox" />
+            <div class="collapse-title text-sm font-semibold">
+              What are the delivery charges?
+            </div>
+            <div
+              class="collapse-content text-sm leading-6 text-base-content/70"
+            >
+              Delivery charges depend on your delivery location and the
+              applicable shipping policy.
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- contact -->
 
       <section class="w-full bg-base-100 px-4 py-16">
         <div class="text-center mb-9">
           <p class="text-xs font-semibold tracking-widest text-gray-400 mb-2">
-            GET IN TOUCH </p>
+            GET IN TOUCH
+          </p>
           <h2 class="text-2xl font-bold text-base-content">Direct Message</h2>
         </div>
         <!-- Contact Form -->
         <div class="flex justify-center items-center">
-          <form id="contact-form" class="w-full max-w-md rounded-3xl border border-base-300 bg-base-100 p-7 sm:p-8">
+          <form
+            id="contact-form"
+            class="w-full max-w-md rounded-3xl border border-base-300 bg-base-100 p-7 sm:p-8"
+          >
             <label class="label mb-1">
               <span class="label-text text-xs font-semibold">YOUR NAME</span>
             </label>
@@ -339,7 +393,11 @@
               class="textarea textarea-bordered w-full min-h-24 rounded-xl bg-base-200 border-base-300 px-3 py-3 text-sm resize-y"
               required
             ></textarea>
-            <button id="submit-btn" type="submit" class="btn btn-neutral mt-4 w-full rounded-xl">
+            <button
+              id="submit-btn"
+              type="submit"
+              class="btn btn-neutral mt-4 w-full rounded-xl"
+            >
               Send Message
             </button>
           </form>
@@ -347,7 +405,7 @@
       </section>
     </main>
     <!-- footer    -->
-   <footer
+    <footer
       class="mt-auto bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 transition-colors"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -451,7 +509,7 @@
         </div>
       </div>
     </footer>
-     Main JavaScript File
+    Main JavaScript File
     <script src="./app.js"></script>
   </body>
 </html>
