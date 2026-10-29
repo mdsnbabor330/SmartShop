@@ -57,3 +57,28 @@ document.getElementById("confirm-topup-btn").addEventListener("click", () => {
 
   document.getElementById("add-money-modal").close();
 });
+
+
+
+
+// Contact Form
+const contactForm = document.getElementById("contact-form");
+const submitBtn = document.getElementById("submit-btn");
+
+contactForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const name = contactForm.querySelector('[name="name"]').value.trim();
+  const email = contactForm.querySelector('[name="email"]').value.trim();
+  const message = contactForm.querySelector('[name="message"]').value.trim();
+
+  if (name === "" || email === "" || message === "") {
+    alert("Please fill in all fields!");
+    return;
+  }
+  contactForm.reset();
+  submitBtn.textContent = "Submitted";
+});
+
+
+
