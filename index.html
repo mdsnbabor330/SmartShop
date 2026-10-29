@@ -390,6 +390,41 @@
           </select>
         </div>
       </div>
+
+
+
+      <!-- Minimal Category Segmented Filter -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-4 mb-6" id="category-filters">
+        <button class="category-btn active px-3.5 py-1.5 rounded-full text-xs font-medium bg-zinc-900 text-white transition-colors whitespace-nowrap"
+          data-category="all">
+          All
+        </button>
+
+        <button class="category-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-zinc-100 text-zinc-600 hover:bg-zinc-200 hover:text-zinc-900 transition-colors whitespace-nowrap"
+          data-category="electronics">
+          Electronics
+        </button>
+
+        <button class="category-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-zinc-100 text-zinc-600 hover:bg-zinc-200 hover:text-zinc-900 transition-colors whitespace-nowrap"
+          data-category="jewelery">
+          Jewelry
+        </button>
+
+        <button class="category-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-zinc-100 text-zinc-600 hover:bg-zinc-200 hover:text-zinc-900 transition-colors whitespace-nowrap"
+          data-category="men's clothing">
+          Men's Apparel
+        </button>
+
+        <button class="category-btn px-3.5 py-1.5 rounded-full text-xs font-medium bg-zinc-100 text-zinc-600 hover:bg-zinc-200 hover:text-zinc-900 transition-colors whitespace-nowrap"
+          data-category="women's clothing">
+          Women's Apparel
+        </button>
+      </div>
+
+
+
+
+
       <!-- Product Grid -->
       <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
     </section>
