@@ -185,19 +185,21 @@
             <a class="btn rounded-full h-8 md:h-10 w-8 md:w-10"
               ><i class="fa-regular fa-moon"></i
             ></a>
-            <a
-              href="#cart"
-              class="btn btn-outline rounded-full h-8 md:h-10 w-25 relative"
+            <label
+              for="my-drawer-5"
+              class="btn btn-outline rounded-full h-8 md:h-10 relative"
+              aria-label="Open shopping cart"
             >
               <i class="fa-brands fa-opencart"></i>
-              <span>Cart</span>
+              <span class="hidden sm:inline">Cart</span>
 
-              <div
+              <span
                 id="cart-count"
                 class="badge badge-sm rounded-full bg-gray-300"
               >
                 0
-              </div>
+              </span>
+            </label>
             </a>
           </div>
         </div>
@@ -274,6 +276,53 @@
           </form>
         </dialog>
       </article>
+      <!-- cart products right side drawer -->
+      <div class="drawer drawer-end">
+        <!-- Drawer Toggle Checkbox -->
+        <input id="my-drawer-5" type="checkbox" class="drawer-toggle" />
+
+        <!-- Drawer Content -->
+        <div class="drawer-content"></div>
+
+        <!-- Drawer Sidebar -->
+        <div class="drawer-side z-60">
+          <label
+            for="my-drawer-5"
+            aria-label="Close shopping cart"
+            class="drawer-overlay"
+          ></label>
+
+          <div class="menu bg-base-200 text-base-content min-h-full w-120 p-4">
+            <div class="flex justify-between items-center mb-5">
+              <h2 class="text-xl font-bold">Shopping Cart</h2>
+
+              <label
+                for="my-drawer-5"
+                class="btn btn-sm btn-circle btn-ghost"
+                aria-label="Close cart"
+              >
+                ✕
+              </label>
+            </div>
+
+            <!-- Cart Products -->
+
+            write your code here
+
+
+            
+
+              <button
+                id="checkout-btn"
+                type="button"
+                class="btn btn-neutral w-full rounded-xl"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Banner -->
       <section></section>
@@ -281,7 +330,7 @@
 
     <main>
       <!-- products -->
-      <section class="my-30 max-w-300 mx-auto ">
+      <section class="my-30 max-w-300 mx-auto">
         <!-- Product Grid -->
         <div
           id="product-grid"
@@ -299,12 +348,16 @@
       <section class="w-full bg-base-100 px-4 py-16">
         <div class="text-center mb-9">
           <p class="text-xs font-semibold tracking-widest text-gray-400 mb-2">
-            GET IN TOUCH </p>
+            GET IN TOUCH
+          </p>
           <h2 class="text-2xl font-bold text-base-content">Direct Message</h2>
         </div>
         <!-- Contact Form -->
         <div class="flex justify-center items-center">
-          <form id="contact-form" class="w-full max-w-md rounded-3xl border border-base-300 bg-base-100 p-7 sm:p-8">
+          <form
+            id="contact-form"
+            class="w-full max-w-md rounded-3xl border border-base-300 bg-base-100 p-7 sm:p-8"
+          >
             <label class="label mb-1">
               <span class="label-text text-xs font-semibold">YOUR NAME</span>
             </label>
@@ -339,7 +392,11 @@
               class="textarea textarea-bordered w-full min-h-24 rounded-xl bg-base-200 border-base-300 px-3 py-3 text-sm resize-y"
               required
             ></textarea>
-            <button id="submit-btn" type="submit" class="btn btn-neutral mt-4 w-full rounded-xl">
+            <button
+              id="submit-btn"
+              type="submit"
+              class="btn btn-neutral mt-4 w-full rounded-xl"
+            >
               Send Message
             </button>
           </form>
@@ -347,7 +404,7 @@
       </section>
     </main>
     <!-- footer    -->
-   <footer
+    <footer
       class="mt-auto bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 transition-colors"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -451,7 +508,7 @@
         </div>
       </div>
     </footer>
-     Main JavaScript File
+    <!-- Main JavaScript File -->
     <script src="./app.js"></script>
   </body>
 </html>

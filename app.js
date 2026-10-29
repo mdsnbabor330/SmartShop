@@ -2,13 +2,19 @@ const navLinks = document.querySelectorAll(".navlink");
 
 let userBalance = 10000;
 let products = [];
-let cart=[];
+
 
 if (localStorage.getItem("smartshop_balance")) {
   userBalance = Number(localStorage.getItem("smartshop_balance"));
 }
 function saveBalance() {
   localStorage.setItem("smartshop_balance", userBalance);
+}
+ 
+let cart = JSON.parse(localStorage.getItem("smartshop_cart")) || [];
+
+function saveCart() {
+  localStorage.setItem("smartshop_cart", JSON.stringify(cart));
 }
 
 // Active navbar link
@@ -135,6 +141,31 @@ const displayProducts = (products) => {
   }
 };
 
+function updateCartCount() {
+  document.getElementById("cart-count").textContent = cart.length;
+}
+
+updateCartCount();
+
+
+function addToCart(id) {
+  const product = products.find((p) => p.id === id);
+
+  if (product) {
+    cart.push(product);
+
+    saveCart();
+    updateCartCount();
+
+    console.log("Cart Data:", cart);
+  }
+
+  displayCartProduct(cart);
+}
+
+const displayCartProduct=(cart)=>{
+    // write your code here
+}
 
 
 // Contact Form
