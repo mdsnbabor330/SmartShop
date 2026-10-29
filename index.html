@@ -26,9 +26,9 @@
   <body class="min-h-screen w-full">
     <header class="w-full">
       <!-- Navbar -->
-      <nav class="sticky shadow w-full">
+      <nav class="fixed z-11 top-0 bg-white shadow w-full">
         <div
-          class="navbar max-w-300 mx-auto bg-transparent p-4 px-7 flex items-center justify-between gap-3"
+          class="navbar max-w-310 mx-auto bg-transparent p-4 px-7 flex items-center justify-between gap-3"
         >
           <div class="navbar-start">
             <div class="dropdown">
@@ -281,7 +281,13 @@
 
     <main>
       <!-- products -->
-      <section></section>
+      <section class="my-30 max-w-300 mx-auto ">
+        <!-- Product Grid -->
+        <div
+          id="product-grid"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
+        ></div>
+      </section>
       <!-- reviews -->
       <section></section>
       <!-- about -->
