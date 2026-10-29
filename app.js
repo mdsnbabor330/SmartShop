@@ -2,6 +2,13 @@ const navLinks = document.querySelectorAll(".navlink");
 
 let userBalance = 1000;
 
+if (localStorage.getItem("smartshop_balance")) {
+  userBalance = Number(localStorage.getItem("smartshop_balance"));
+}
+function saveBalance() {
+  localStorage.setItem("smartshop_balance", userBalance);
+}
+
 // Active navbar link
 function toggleStyle(id) {
   navLinks.forEach((link) => {
@@ -50,7 +57,7 @@ document.getElementById("confirm-topup-btn").addEventListener("click", () => {
   const amount = Number(amountInput.value);
 
   userBalance += amount;
-
+  saveBalance() 
   updateBalanceDisplay();
 
   amountInput.value = "";
