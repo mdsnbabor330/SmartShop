@@ -1,29 +1,209 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SmartShop - Your Ultimate Shopping Destination</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="/style.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Tailwind and DaisyUi cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
-    <header>
+  <body class="min-h-screen w-full">
+    <header class="w-full">
       <!-- Navbar -->
-      <nav></nav>
+      <nav class="sticky shadow w-full">
+        <div
+          class="navbar max-w-300 mx-auto bg-transparent p-4 px-7 flex items-center justify-between gap-3"
+        >
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg
+                  aria-label="Menu"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 -ml-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="-1"
+                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow gap-3"
+              >
+                <li>
+                  <a
+                    href="#home"
+                    onclick="toggleStyle('home')"
+                    data-id="home"
+                    class="font-bold border-b-2 hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
+                    >Home</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    href="#products"
+                    onclick="toggleStyle('products')"
+                    data-id="products"
+                    class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
+                    >Products</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    href="#reviews"
+                    onclick="toggleStyle('reviews')"
+                    data-id="reviews"
+                    class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
+                    >Reviews</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    href="#about"
+                    onclick="toggleStyle('about')"
+                    data-id="about"
+                    class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
+                    >About</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    href="#contact"
+                    onclick="toggleStyle('contact')"
+                    data-id="contact"
+                    class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
+                    >Contact</a
+                  >
+                </li>
+                <li>
+                  <a class="btn rounded-full"
+                    ><i class="fa-solid fa-money-bill-1"></i>1000+</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <a href="#home" class="font-bold -ml-2">
+              <div class="flex items-center gap-1">
+                <i class="fa-solid fa-shop text-2xl md:text-4xl"></i>
+
+                <div class="flex flex-col items-start">
+                  <span class="text-xl md:text-3xl">SmartShop</span>
+                  <span
+                    class="text-xs md:text-[14px] font-normal text-gray-500 -mt-2"
+                    >Studio</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+              <li>
+                <a
+                  href="#home"
+                  onclick="toggleStyle('home')"
+                  data-id="home"
+                  class="font-bold border-b-2 hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
+                  >Home</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#products"
+                  onclick="toggleStyle('products')"
+                  data-id="products"
+                  class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
+                  >Products</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#reviews"
+                  onclick="toggleStyle('reviews')"
+                  data-id="reviews"
+                  class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
+                  >Reviews</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#about"
+                  onclick="toggleStyle('about')"
+                  data-id="about"
+                  class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
+                  >About</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#contact"
+                  onclick="toggleStyle('contact')"
+                  data-id="contact"
+                  class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="navbar-end gap-3">
+            <a class="btn rounded-full hidden lg:flex"
+              ><i class="fa-solid fa-money-bill-1"></i>1000+</a
+            >
+            <a class="btn rounded-full h-8 md:h-10 w-8 md:w-10"
+              ><i class="fa-regular fa-moon"></i
+            ></a>
+            <a
+              href="#cart"
+              class="btn btn-outline rounded-full h-8 md:h-10 w-25 relative"
+            >
+              <i class="fa-brands fa-opencart"></i>
+              <span>Cart</span>
+
+              <div
+                id="cart-count"
+                class="badge badge-sm rounded-full bg-gray-300"
+              >
+                0
+              </div>
+            </a>
+          </div>
+        </div>
+      </nav>
       <!-- Banner -->
       <section></section>
     </header>
 
     <main>
-      <h1>lets Get Started!! Guys...</h1>
-      <p>hello world</p>
       <!-- products -->
       <section></section>
       <!-- reviews -->
