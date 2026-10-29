@@ -151,6 +151,8 @@
               <div class="relative">
                 <span class="absolute left-3.5 top-1/2 -translate-y-1/2 font-medium text-zinc-400 text-sm">৳</span>
                 <input type="number" id="topup-amount-input" min="100" max="50000" step="100" placeholder="1000"
+                <input type="number" id="topup-amount-input" min="100" max="50000" step="100"
+                  placeholder="Add Your Amount"
                   class="input input-bordered w-full pl-8 pr-4 py-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white font-semibold text-sm focus:outline-none" />
               </div>
             </div>
@@ -296,6 +298,7 @@
             </div>
           </div>
 
+          write your code here
 
 
 
@@ -317,6 +320,32 @@
   <main>
     <!-- products -->
     <section id="products" class="pt-20 max-w-300 mx-auto">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-zinc-200  mb-8">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold tracking-tight ">Curated
+            Collection</h2>
+          <p class="text-xs text-zinc-500  mt-1">Live items streamed from FakeStore API (1 USD ≈ 120
+            BDT).</p>
+        </div>
+
+        <!-- Search & Sort -->
+        <div class="flex flex-wrap items-center gap-2.5">
+          <div class="relative min-w-50 flex-1 sm:flex-initial">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 text-xs"></i>
+            <input type="text" id="search-input" placeholder="Search catalog..."
+              class="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl bg-white border border-zinc-200 dark:border-zinc-800 text-zinc-900  placeholder:text-zinc-400  transition-colors">
+          </div>
+
+          <select id="sort-select"
+            class="px-3 py-1.5 text-xs rounded-xl bg-white border border-zinc-200 text-zinc-700  font-medium focus:outline-none">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+          </select>
+        </div>
+      </div>
       <!-- Product Grid -->
       <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
     </section>
@@ -324,7 +353,7 @@
     <section></section>
     <!-- about -->
     <section class="w-full border-y border-base-300 bg-base-100 px-5 py-14 sm:px-8 lg:px-10">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div class="mx-auto grid max-w-300 grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <!-- Left Side -->
         <div>
           <p class="mb-2 text-xs font-semibold tracking-widest text-base-content/50">
@@ -414,7 +443,7 @@
             </div>
 
             <!-- Item 3 -->
-            <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
+               <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
               <div
                 class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neutral text-xs font-bold text-neutral-content">
                 03

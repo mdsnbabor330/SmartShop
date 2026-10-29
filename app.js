@@ -3,14 +3,13 @@ const navLinks = document.querySelectorAll(".navlink");
 let userBalance = 10000;
 let products = [];
 
-
 if (localStorage.getItem("smartshop_balance")) {
   userBalance = Number(localStorage.getItem("smartshop_balance"));
 }
 function saveBalance() {
   localStorage.setItem("smartshop_balance", userBalance);
 }
- 
+
 let cart = JSON.parse(localStorage.getItem("smartshop_cart")) || [];
 
 function saveCart() {
@@ -255,12 +254,49 @@ const displayProducts = (products) => {
   }
 };
 
+// SEARCH & SORT products
+
+function filterProducts() {
+  let searchText = document
+    .getElementById("search-input")
+    .value.toLowerCase()
+    .trim();
+  let sortType = document.getElementById("sort-select").value;
+
+  let filtered = [...products];
+
+  // 2. Filter by search text
+  if (searchText !== "") {
+    filtered = filtered.filter(
+      (p) =>
+        p.title.toLowerCase().includes(searchText) ||
+        p.category.toLowerCase().includes(searchText),
+    );
+  }
+
+  // 3. Sort products
+  if (sortType === "price-asc") {
+    filtered.sort((a, b) => a.priceBDT - b.priceBDT);
+  } else if (sortType === "price-desc") {
+    filtered.sort((a, b) => b.priceBDT - a.priceBDT);
+  } else if (sortType === "name-asc") {
+    filtered.sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  displayProducts(filtered);
+}
+
+document.getElementById("search-input").oninput = filterProducts;
+document.getElementById("sort-select").onchange = filterProducts;
+
+//updateCartCount
 function updateCartCount() {
   document.getElementById("cart-count").textContent = cart.length;
 }
 
 updateCartCount();
 
+//add to cart product
 
 function addToCart(id) {
   const product = products.find((p) => p.id === id);
@@ -277,10 +313,9 @@ function addToCart(id) {
   displayCartProduct(cart);
 }
 
-const displayCartProduct=(cart)=>{
-    // write your code here
-}
-
+const displayCartProduct = (cart) => {
+  // write your code here
+};
 
 
 
@@ -306,9 +341,7 @@ contactForm.addEventListener("submit", function (event) {
     alert("Please fill in all fields!");
     return;
   }
-  contactForm.reset();
   submitBtn.textContent = "Submitted";
+  contactForm.reset();
+  window.location.reload();
 });
-
-
-
