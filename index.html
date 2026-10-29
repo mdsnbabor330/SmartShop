@@ -102,9 +102,10 @@
                   >
                 </li>
                 <li>
-                  <a class="btn rounded-full"
-                    ><i class="fa-solid fa-money-bill-1"></i>1000+</a
-                  >
+                  <a class="btn rounded-full add-money-modal"
+                    ><i class="fa-solid fa-money-bill-1"></i
+                    ><span id="mobile-navbar-current-balance"></span
+                  ></a>
                 </li>
               </ul>
             </div>
@@ -176,9 +177,10 @@
             </ul>
           </div>
           <div class="navbar-end gap-3">
-            <a class="btn rounded-full hidden lg:flex"
-              ><i class="fa-solid fa-money-bill-1"></i>1000+</a
-            >
+            <a class="btn rounded-full hidden lg:flex add-money-modal"
+              ><i class="fa-solid fa-money-bill-1"></i>
+              <span id="desktop-navbar-current-balance"></span>
+            </a>
             <a class="btn rounded-full h-8 md:h-10 w-8 md:w-10"
               ><i class="fa-regular fa-moon"></i
             ></a>
@@ -199,15 +201,86 @@
           </div>
         </div>
       </nav>
+
+      <!-- add money modal -->
+      <article>
+        <dialog id="add-money-modal" class="modal">
+          <div
+            class="modal-box bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 sm:p-8 max-w-sm w-full shadow-2xl relative"
+          >
+            <form method="dialog">
+              <button
+                id="close-add-money-modal"
+                class="btn btn-sm btn-circle btn-ghost absolute right-4 top-4 text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+              >
+                ✕
+              </button>
+            </form>
+
+            <div
+              class="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-sm mb-4"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </div>
+            <h3
+              class="text-lg font-display font-bold text-zinc-900 dark:text-white tracking-tight"
+            >
+              Top Up Wallet
+            </h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+              Available balance:
+              <span
+                class="font-bold text-zinc-900 dark:text-white"
+                id="modal-current-balance"
+              ></span>
+            </p>
+
+            <div class="mt-5 space-y-4">
+              <div>
+                <label
+                  for="topup-amount-input"
+                  class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1.5"
+                  >Amount (BDT)</label
+                >
+                <div class="relative">
+                  <span
+                    class="absolute left-3.5 top-1/2 -translate-y-1/2 font-medium text-zinc-400 text-sm"
+                    >৳</span
+                  >
+                  <input
+                    type="number"
+                    id="topup-amount-input"
+                    min="100"
+                    max="50000"
+                    step="100"
+                    placeholder="1000"
+                    class="input input-bordered w-full pl-8 pr-4 py-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white font-semibold text-sm focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <button
+                method="dialog"
+                id="confirm-topup-btn"
+                class="btn w-full bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-white text-white dark:text-zinc-900 font-semibold rounded-xl text-xs transition-all border-none"
+              >
+                Add to Wallet
+              </button>
+            </div>
+          </div>
+          <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
+      </article>
+
       <!-- Banner -->
       <section></section>
     </header>
 
     <main>
       <!-- products -->
-      <section>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, deleniti.</p>
-      </section>
+      <section></section>
       <!-- reviews -->
       <section></section>
       <!-- about -->
