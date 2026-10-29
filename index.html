@@ -28,7 +28,7 @@
       <!-- Navbar -->
       <nav class="fixed z-11 top-0 bg-white shadow w-full">
         <div
-          class="navbar max-w-310 mx-auto bg-transparent p-4 px-7 flex items-center justify-between gap-3"
+          class="navbar max-w-310 mx-auto bg-transparent  px-7 flex items-center justify-between gap-3"
         >
           <div class="navbar-start">
             <div class="dropdown">
@@ -256,7 +256,7 @@
                     min="100"
                     max="50000"
                     step="100"
-                    placeholder="1000"
+                    placeholder="Add Your Amount"
                     class="input input-bordered w-full pl-8 pr-4 py-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white font-semibold text-sm focus:outline-none"
                   />
                 </div>
@@ -325,12 +325,14 @@
       </div>
 
       <!-- Banner -->
-      <section></section>
+      <section id="home" class="Offer_Section pt-25">
+        <div id="Offer_Banner" class=" relative max-w-300 mx-auto rounded-2xl overflow-hidden"></div> 
+      </section>
     </header>
 
     <main>
       <!-- products -->
-      <section class="my-30 max-w-300 mx-auto">
+      <section id="products" class="pt-20 max-w-300 mx-auto">
         <!-- Product Grid -->
         <div
           id="product-grid"
@@ -340,9 +342,165 @@
       <!-- reviews -->
       <section></section>
       <!-- about -->
-      <section></section>
+      <section class="w-full border-y border-base-300 bg-base-100 px-5 py-14 sm:px-8 lg:px-10">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <!-- Left Side -->
+          <div>
+            <p class="mb-2 text-xs font-semibold tracking-widest text-base-content/50">
+              ABOUT THE PROJECT
+            </p>
+
+            <h2 class="mb-4 max-w-md text-2xl font-bold leading-tight tracking-tight text-base-content sm:text-3xl">
+              Minimalism Meets Robust DOM Architecture.
+            </h2>
+
+            <p class="mb-3 text-sm leading-6 text-base-content/70">
+              SmartShop is developed for
+              <span class="font-bold text-base-content">
+                CSE-3532 (Tools & Technologies for Internet Programming)
+              </span>
+              fulfilling Course Outcome 2 (CO2). Built purely with semantic
+              HTML5, utility-first Tailwind CSS, and reactive Vanilla JavaScript
+              DOM semantics.
+            </p>
+
+            <p class="mb-5 text-sm leading-5 text-base-content/70">
+              Zero heavy external JS frameworks, zero ad-hoc raw CSS files, and
+              100% responsive client-side state synchronized to browser
+              LocalStorage.
+            </p>
+
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div class="rounded-2xl border border-base-300 bg-base-200/50 p-3">
+                <h3 class="mb-1 text-sm font-bold text-base-content">
+                  Client-Side Logic
+                </h3>
+                <p class="text-xs leading-4 text-base-content/60">
+                  Real-time calculations without page reloads
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-base-300 bg-base-200/50 p-3">
+                <h3 class="mb-1 text-sm font-bold text-base-content">
+                  REST API Feed
+                </h3>
+                <p class="text-xs leading-4 text-base-content/60">
+                  Asynchronous FakeStore API ingestion
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side -->
+          <div class="rounded-3xl border border-base-300 bg-base-100 p-6 sm:p-7">
+            <h3 class="mb-4 text-sm font-bold text-base-content sm:text-base">
+              Project Development Team
+            </h3>
+
+            <div class="space-y-2.5">
+        
+              <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
+                <div class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neutral text-xs font-bold text-neutral-content">
+                  01
+                </div>
+
+                <div>
+                  <h4 class="text-xs font-bold text-base-content">
+                    Core DOM Architecture
+                  </h4>
+                  <p class="text-xs leading-4 text-base-content/60">
+                    HTML5 semantic layout & Tailwind CSS styling
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
+                <div class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neutral text-xs font-bold text-neutral-content">
+                  02
+                </div>
+
+                <div>
+                  <h4 class="text-xs font-bold text-base-content">
+                    API & State Engine
+                  </h4>
+                  <p class="text-xs leading-4 text-base-content/60">
+                    Fetch API, LocalStorage, and balance restriction logic
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
+                <div class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neutral text-xs font-bold text-neutral-content">
+                  03
+                </div>
+
+                <div>
+                  <h4 class="text-xs font-bold text-base-content">
+                    Interactive Components
+                    suqgsd
+                  </h4>
+                  <p class="text-xs leading-4 text-base-content/60">
+                    Sliding carousels, form validation, and dark mode
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Frequently Asked Questions -->
-      <section></section>
+      <section class="w-full bg-base-200 px-4 pt-14 pb-24">
+        <div class="mx-auto max-w-3xl">
+          <h2
+            class="mb-8 text-center text-xl font-bold text-base-content sm:text-2xl"
+          >
+            Frequently Asked Questions
+          </h2>
+          <div
+            class="collapse collapse-arrow mb-2 rounded-2xl border border-base-300 bg-base-100"
+          >
+            <input type="checkbox" />
+            <div class="collapse-title text-sm font-semibold">
+              How does the user balance limit work?
+            </div>
+            <div
+              class="collapse-content text-sm leading-6 text-base-content/70"
+            >
+              The user balance limit determines the maximum amount a user can
+              hold in their account at a time.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-arrow mb-2 rounded-2xl border border-base-300 bg-base-100"
+          >
+            <input type="checkbox" />
+            <div class="collapse-title text-sm font-semibold">
+              Which coupon is valid?
+            </div>
+            <div
+              class="collapse-content text-sm leading-6 text-base-content/70"
+            >
+              You can apply a valid coupon during checkout to receive the
+              available discount. Make sure the coupon has not expired.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-arrow rounded-2xl border border-base-300 bg-base-100"
+          >
+            <input type="checkbox" />
+            <div class="collapse-title text-sm font-semibold">
+              What are the delivery charges?
+            </div>
+            <div
+              class="collapse-content text-sm leading-6 text-base-content/70"
+            >
+              Delivery charges depend on your delivery location and the
+              applicable shipping policy.
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- contact -->
 
       <section class="w-full bg-base-100 px-4 py-16">
