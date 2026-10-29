@@ -1,672 +1,509 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SmartShop - Your Ultimate Shopping Destination</title>
-    <link rel="stylesheet" href="/style.css" />
-    <!-- font-awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
-      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
 
-    <!-- Tailwind and DaisyUi cdn -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@5"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartShop - Your Ultimate Shopping Destination</title>
+  <link rel="stylesheet" href="/style.css" />
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+    integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <body class="min-h-screen w-full">
-    <header class="w-full">
-      <!-- Navbar -->
-      <nav class="fixed z-11 top-0 bg-white shadow w-full">
-        <div
-          class="navbar max-w-310 mx-auto bg-transparent  px-7 flex items-center justify-between gap-3"
-        >
-          <div class="navbar-start">
-            <div class="dropdown">
-              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                <svg
-                  aria-label="Menu"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 -ml-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
-              </div>
-              <ul
-                tabindex="-1"
-                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow gap-3"
-              >
-                <li>
-                  <a
-                    href="#home"
-                    onclick="toggleStyle('home')"
-                    data-id="home"
-                    class="font-bold border-b-2 hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
-                    >Home</a
-                  >
-                </li>
+  <!-- Tailwind and DaisyUi cdn -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
 
-                <li>
-                  <a
-                    href="#products"
-                    onclick="toggleStyle('products')"
-                    data-id="products"
-                    class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
-                    >Products</a
-                  >
-                </li>
-
-                <li>
-                  <a
-                    href="#reviews"
-                    onclick="toggleStyle('reviews')"
-                    data-id="reviews"
-                    class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
-                    >Reviews</a
-                  >
-                </li>
-
-                <li>
-                  <a
-                    href="#about"
-                    onclick="toggleStyle('about')"
-                    data-id="about"
-                    class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
-                    >About</a
-                  >
-                </li>
-
-                <li>
-                  <a
-                    href="#contact"
-                    onclick="toggleStyle('contact')"
-                    data-id="contact"
-                    class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
-                    >Contact</a
-                  >
-                </li>
-                <li>
-                  <a class="btn rounded-full add-money-modal"
-                    ><i class="fa-solid fa-money-bill-1"></i
-                    ><span id="mobile-navbar-current-balance"></span
-                  ></a>
-                </li>
-              </ul>
+<body class="min-h-screen w-full">
+  <header class="w-full">
+    <!-- Navbar -->
+    <nav class="fixed z-11 top-0 bg-white shadow w-full">
+      <div class="navbar max-w-310 mx-auto bg-transparent  px-7 flex items-center justify-between gap-3">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 -ml-5" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
             </div>
-            <a href="#home" class="font-bold -ml-2">
-              <div class="flex items-center gap-1">
-                <i class="fa-solid fa-shop text-2xl md:text-4xl"></i>
-
-                <div class="flex flex-col items-start">
-                  <span class="text-xl md:text-3xl">SmartShop</span>
-                  <span
-                    class="text-xs md:text-[14px] font-normal text-gray-500 -mt-2"
-                    >Studio</span
-                  >
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
+            <ul tabindex="-1"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow gap-3">
               <li>
-                <a
-                  href="#home"
-                  onclick="toggleStyle('home')"
-                  data-id="home"
-                  class="font-bold border-b-2 hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
-                  >Home</a
-                >
+                <a href="#home" onclick="toggleStyle('home')" data-id="home"
+                  class="font-bold border-b-2 hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink">Home</a>
               </li>
 
               <li>
-                <a
-                  href="#products"
-                  onclick="toggleStyle('products')"
-                  data-id="products"
-                  class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
-                  >Products</a
-                >
+                <a href="#products" onclick="toggleStyle('products')" data-id="products"
+                  class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink">Products</a>
               </li>
 
               <li>
-                <a
-                  href="#reviews"
-                  onclick="toggleStyle('reviews')"
-                  data-id="reviews"
-                  class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
-                  >Reviews</a
-                >
+                <a href="#reviews" onclick="toggleStyle('reviews')" data-id="reviews"
+                  class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink">Reviews</a>
               </li>
 
               <li>
-                <a
-                  href="#about"
-                  onclick="toggleStyle('about')"
-                  data-id="about"
-                  class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
-                  >About</a
-                >
+                <a href="#about" onclick="toggleStyle('about')" data-id="about"
+                  class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink">About</a>
               </li>
 
               <li>
-                <a
-                  href="#contact"
-                  onclick="toggleStyle('contact')"
-                  data-id="contact"
-                  class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink"
-                  >Contact</a
-                >
+                <a href="#contact" onclick="toggleStyle('contact')" data-id="contact"
+                  class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink">Contact</a>
+              </li>
+              <li>
+                <a class="btn rounded-full add-money-modal"><i class="fa-solid fa-money-bill-1"></i><span
+                    id="mobile-navbar-current-balance"></span></a>
               </li>
             </ul>
           </div>
-          <div class="navbar-end gap-3">
-            <a class="btn rounded-full hidden lg:flex add-money-modal"
-              ><i class="fa-solid fa-money-bill-1"></i>
-              <span id="desktop-navbar-current-balance"></span>
-            </a>
-            <a class="btn rounded-full h-8 md:h-10 w-8 md:w-10"
-              ><i class="fa-regular fa-moon"></i
-            ></a>
-            <label
-              for="my-drawer-5"
-              class="btn btn-outline rounded-full h-8 md:h-10 relative"
-              aria-label="Open shopping cart"
-            >
-              <i class="fa-brands fa-opencart"></i>
-              <span class="hidden sm:inline">Cart</span>
+          <a href="#home" class="font-bold -ml-2">
+            <div class="flex items-center gap-1">
+              <i class="fa-solid fa-shop text-2xl md:text-4xl"></i>
 
-              <span
-                id="cart-count"
-                class="badge badge-sm rounded-full bg-gray-300"
-              >
-                0
-              </span>
-            </label>
-            </a>
-          </div>
-        </div>
-      </nav>
-
-      <!-- add money modal -->
-      <article>
-        <dialog id="add-money-modal" class="modal">
-          <div
-            class="modal-box bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 sm:p-8 max-w-sm w-full shadow-2xl relative"
-          >
-            <form method="dialog">
-              <button
-                id="close-add-money-modal"
-                class="btn btn-sm btn-circle btn-ghost absolute right-4 top-4 text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
-              >
-                ✕
-              </button>
-            </form>
-
-            <div
-              class="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-sm mb-4"
-            >
-              <i class="fa-solid fa-plus"></i>
-            </div>
-            <h3
-              class="text-lg font-display font-bold text-zinc-900 dark:text-white tracking-tight"
-            >
-              Top Up Wallet
-            </h3>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-              Available balance:
-              <span
-                class="font-bold text-zinc-900 dark:text-white"
-                id="modal-current-balance"
-              ></span>
-            </p>
-
-            <div class="mt-5 space-y-4">
-              <div>
-                <label
-                  for="topup-amount-input"
-                  class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1.5"
-                  >Amount (BDT)</label
-                >
-                <div class="relative">
-                  <span
-                    class="absolute left-3.5 top-1/2 -translate-y-1/2 font-medium text-zinc-400 text-sm"
-                    >৳</span
-                  >
-                  <input
-                    type="number"
-                    id="topup-amount-input"
-                    min="100"
-                    max="50000"
-                    step="100"
-                    placeholder="Add Your Amount"
-                    class="input input-bordered w-full pl-8 pr-4 py-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white font-semibold text-sm focus:outline-none"
-                  />
-                </div>
+              <div class="flex flex-col items-start">
+                <span class="text-xl md:text-3xl">SmartShop</span>
+                <span class="text-xs md:text-[14px] font-normal text-gray-500 -mt-2">Studio</span>
               </div>
-
-              <button
-                method="dialog"
-                id="confirm-topup-btn"
-                class="btn w-full bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-white text-white dark:text-zinc-900 font-semibold rounded-xl text-xs transition-all border-none"
-              >
-                Add to Wallet
-              </button>
             </div>
-          </div>
-          <form method="dialog" class="modal-backdrop">
-            <button>close</button>
-          </form>
-        </dialog>
-      </article>
-      <!-- cart products right side drawer -->
-      <div class="drawer drawer-end">
-        <!-- Drawer Toggle Checkbox -->
-        <input id="my-drawer-5" type="checkbox" class="drawer-toggle" />
+          </a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li>
+              <a href="#home" onclick="toggleStyle('home')" data-id="home"
+                class="font-bold border-b-2 hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink">Home</a>
+            </li>
 
-        <!-- Drawer Content -->
-        <div class="drawer-content"></div>
+            <li>
+              <a href="#products" onclick="toggleStyle('products')" data-id="products"
+                class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink">Products</a>
+            </li>
 
-        <!-- Drawer Sidebar -->
-        <div class="drawer-side z-60">
-          <label
-            for="my-drawer-5"
-            aria-label="Close shopping cart"
-            class="drawer-overlay"
-          ></label>
+            <li>
+              <a href="#reviews" onclick="toggleStyle('reviews')" data-id="reviews"
+                class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink">Reviews</a>
+            </li>
 
-          <div class="menu bg-base-200 text-base-content min-h-full w-120 p-4">
-            <div class="flex justify-between items-center mb-5">
-              <h2 class="text-xl font-bold">Shopping Cart</h2>
+            <li>
+              <a href="#about" onclick="toggleStyle('about')" data-id="about"
+                class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink">About</a>
+            </li>
 
-              <label
-                for="my-drawer-5"
-                class="btn btn-sm btn-circle btn-ghost"
-                aria-label="Close cart"
-              >
-                ✕
-              </label>
-            </div>
+            <li>
+              <a href="#contact" onclick="toggleStyle('contact')" data-id="contact"
+                class="font-medium hover:font-bold hover:-translate-y-1 transition-all hover:bg-transparent focus:bg-transparent navlink">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-end gap-3">
+          <a class="btn rounded-full hidden lg:flex add-money-modal"><i class="fa-solid fa-money-bill-1"></i>
+            <span id="desktop-navbar-current-balance"></span>
+          </a>
+          <a class="btn rounded-full h-8 md:h-10 w-8 md:w-10"><i class="fa-regular fa-moon"></i></a>
+          <label for="my-drawer-5" class="btn btn-outline rounded-full h-8 md:h-10 relative"
+            aria-label="Open shopping cart">
+            <i class="fa-brands fa-opencart"></i>
+            <span class="hidden sm:inline">Cart</span>
 
-            <!-- Cart Products -->
-
-            write your code here
-
-
-            
-
-              <button
-                id="checkout-btn"
-                type="button"
-                class="btn btn-neutral w-full rounded-xl"
-              >
-                Checkout
-              </button>
-            </div>
-          </div>
+            <span id="cart-count" class="badge badge-sm rounded-full bg-gray-300">
+              0
+            </span>
+          </label>
+          </a>
         </div>
       </div>
+    </nav>
 
-      <!-- Banner -->
-      <section id="home" class="Offer_Section pt-25">
-        <div id="Offer_Banner" class=" relative max-w-300 mx-auto rounded-2xl overflow-hidden"></div> 
-      </section>
-    </header>
-
-    <main>
-      <!-- products -->
-      <section id="products" class="pt-20 max-w-300 mx-auto">
-        <!-- Product Grid -->
+    <!-- add money modal -->
+    <article>
+      <dialog id="add-money-modal" class="modal">
         <div
-          id="product-grid"
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
-        ></div>
-      </section>
-      <!-- reviews -->
-      <section></section>
-      <!-- about -->
-      <section class="w-full border-y border-base-300 bg-base-100 px-5 py-14 sm:px-8 lg:px-10">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <!-- Left Side -->
-          <div>
-            <p class="mb-2 text-xs font-semibold tracking-widest text-base-content/50">
-              ABOUT THE PROJECT
-            </p>
-
-            <h2 class="mb-4 max-w-md text-2xl font-bold leading-tight tracking-tight text-base-content sm:text-3xl">
-              Minimalism Meets Robust DOM Architecture.
-            </h2>
-
-            <p class="mb-3 text-sm leading-6 text-base-content/70">
-              SmartShop is developed for
-              <span class="font-bold text-base-content">
-                CSE-3532 (Tools & Technologies for Internet Programming)
-              </span>
-              fulfilling Course Outcome 2 (CO2). Built purely with semantic
-              HTML5, utility-first Tailwind CSS, and reactive Vanilla JavaScript
-              DOM semantics.
-            </p>
-
-            <p class="mb-5 text-sm leading-5 text-base-content/70">
-              Zero heavy external JS frameworks, zero ad-hoc raw CSS files, and
-              100% responsive client-side state synchronized to browser
-              LocalStorage.
-            </p>
-
-            <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <div class="rounded-2xl border border-base-300 bg-base-200/50 p-3">
-                <h3 class="mb-1 text-sm font-bold text-base-content">
-                  Client-Side Logic
-                </h3>
-                <p class="text-xs leading-4 text-base-content/60">
-                  Real-time calculations without page reloads
-                </p>
-              </div>
-
-              <div class="rounded-2xl border border-base-300 bg-base-200/50 p-3">
-                <h3 class="mb-1 text-sm font-bold text-base-content">
-                  REST API Feed
-                </h3>
-                <p class="text-xs leading-4 text-base-content/60">
-                  Asynchronous FakeStore API ingestion
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Side -->
-          <div class="rounded-3xl border border-base-300 bg-base-100 p-6 sm:p-7">
-            <h3 class="mb-4 text-sm font-bold text-base-content sm:text-base">
-              Project Development Team
-            </h3>
-
-            <div class="space-y-2.5">
-        
-              <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
-                <div class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neutral text-xs font-bold text-neutral-content">
-                  01
-                </div>
-
-                <div>
-                  <h4 class="text-xs font-bold text-base-content">
-                    Core DOM Architecture
-                  </h4>
-                  <p class="text-xs leading-4 text-base-content/60">
-                    HTML5 semantic layout & Tailwind CSS styling
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
-                <div class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neutral text-xs font-bold text-neutral-content">
-                  02
-                </div>
-
-                <div>
-                  <h4 class="text-xs font-bold text-base-content">
-                    API & State Engine
-                  </h4>
-                  <p class="text-xs leading-4 text-base-content/60">
-                    Fetch API, LocalStorage, and balance restriction logic
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
-                <div class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neutral text-xs font-bold text-neutral-content">
-                  03
-                </div>
-
-                <div>
-                  <h4 class="text-xs font-bold text-base-content">
-                    Interactive Components
-                    suqgsd
-                  </h4>
-                  <p class="text-xs leading-4 text-base-content/60">
-                    Sliding carousels, form validation, and dark mode
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Frequently Asked Questions -->
-      <section class="w-full bg-base-200 px-4 pt-14 pb-24">
-        <div class="mx-auto max-w-3xl">
-          <h2
-            class="mb-8 text-center text-xl font-bold text-base-content sm:text-2xl"
-          >
-            Frequently Asked Questions
-          </h2>
-          <div
-            class="collapse collapse-arrow mb-2 rounded-2xl border border-base-300 bg-base-100"
-          >
-            <input type="checkbox" />
-            <div class="collapse-title text-sm font-semibold">
-              How does the user balance limit work?
-            </div>
-            <div
-              class="collapse-content text-sm leading-6 text-base-content/70"
-            >
-              The user balance limit determines the maximum amount a user can
-              hold in their account at a time.
-            </div>
-          </div>
-          <div
-            class="collapse collapse-arrow mb-2 rounded-2xl border border-base-300 bg-base-100"
-          >
-            <input type="checkbox" />
-            <div class="collapse-title text-sm font-semibold">
-              Which coupon is valid?
-            </div>
-            <div
-              class="collapse-content text-sm leading-6 text-base-content/70"
-            >
-              You can apply a valid coupon during checkout to receive the
-              available discount. Make sure the coupon has not expired.
-            </div>
-          </div>
-          <div
-            class="collapse collapse-arrow rounded-2xl border border-base-300 bg-base-100"
-          >
-            <input type="checkbox" />
-            <div class="collapse-title text-sm font-semibold">
-              What are the delivery charges?
-            </div>
-            <div
-              class="collapse-content text-sm leading-6 text-base-content/70"
-            >
-              Delivery charges depend on your delivery location and the
-              applicable shipping policy.
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- contact -->
-
-      <section class="w-full bg-base-100 px-4 py-16">
-        <div class="text-center mb-9">
-          <p class="text-xs font-semibold tracking-widest text-gray-400 mb-2">
-            GET IN TOUCH
-          </p>
-          <h2 class="text-2xl font-bold text-base-content">Direct Message</h2>
-        </div>
-        <!-- Contact Form -->
-        <div class="flex justify-center items-center">
-          <form
-            id="contact-form"
-            class="w-full max-w-md rounded-3xl border border-base-300 bg-base-100 p-7 sm:p-8"
-          >
-            <label class="label mb-1">
-              <span class="label-text text-xs font-semibold">YOUR NAME</span>
-            </label>
-
-            <input
-              type="text"
-              name="name"
-              placeholder="Full name"
-              class="input input-bordered w-full rounded-xl bg-base-200 border-base-300"
-              required
-            />
-            <label class="label mt-3 mb-1">
-              <span class="label-text text-xs font-semibold">EMAIL</span>
-            </label>
-
-            <input
-              type="email"
-              name="email"
-              placeholder="email@address.com"
-              class="input input-bordered w-full rounded-xl bg-base-200 border-base-300"
-              required
-            />
-            <label class="label mt-3 mb-1">
-              <span class="label-text text-xs font-semibold">MESSAGE</span>
-            </label>
-
-            <textarea
-              id="message"
-              name="message"
-              placeholder="How can we assist you?"
-              rows="4"
-              class="textarea textarea-bordered w-full min-h-24 rounded-xl bg-base-200 border-base-300 px-3 py-3 text-sm resize-y"
-              required
-            ></textarea>
-            <button
-              id="submit-btn"
-              type="submit"
-              class="btn btn-neutral mt-4 w-full rounded-xl"
-            >
-              Send Message
+          class="modal-box bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 sm:p-8 max-w-sm w-full shadow-2xl relative">
+          <form method="dialog">
+            <button id="close-add-money-modal"
+              class="btn btn-sm btn-circle btn-ghost absolute right-4 top-4 text-zinc-400 hover:text-zinc-900 dark:hover:text-white">
+              ✕
             </button>
           </form>
-        </div>
-      </section>
-    </main>
-    <!-- footer    -->
-    <footer
-      class="mt-auto bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 transition-colors"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <div class="flex items-center gap-2">
-              <div
-                class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center font-bold text-xs"
-              >
-                S
+
+          <div
+            class="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center text-sm mb-4">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <h3 class="text-lg font-display font-bold text-zinc-900 dark:text-white tracking-tight">
+            Top Up Wallet
+          </h3>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+            Available balance:
+            <span class="font-bold text-zinc-900 dark:text-white" id="modal-current-balance"></span>
+          </p>
+
+          <div class="mt-5 space-y-4">
+            <div>
+              <label for="topup-amount-input"
+                class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">Amount
+                (BDT)</label>
+              <div class="relative">
+                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 font-medium text-zinc-400 text-sm">৳</span>
+                <input type="number" id="topup-amount-input" min="100" max="50000" step="100"
+                  placeholder="Add Your Amount"
+                  class="input input-bordered w-full pl-8 pr-4 py-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white font-semibold text-sm focus:outline-none" />
               </div>
-              <span
-                class="font-display font-extrabold text-base text-zinc-900 dark:text-white"
-                >SmartShop.</span
-              >
             </div>
-            <p class="mt-2.5 text-xs text-zinc-500 leading-relaxed">
-              Minimalist e-commerce application developed for CSE-3532 Web
-              Technologies Lab.
-            </p>
-          </div>
 
-          <div>
-            <h4
-              class="text-xs font-semibold uppercase tracking-wider text-zinc-900 dark:text-white mb-3"
-            >
-              Links
-            </h4>
-            <ul class="space-y-1.5 text-xs text-zinc-500">
-              <li>
-                <a
-                  href="#home"
-                  class="hover:text-zinc-900 dark:hover:text-white transition-colors"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#products"
-                  class="hover:text-zinc-900 dark:hover:text-white transition-colors"
-                  >Products</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#reviews"
-                  class="hover:text-zinc-900 dark:hover:text-white transition-colors"
-                  >Reviews</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  class="hover:text-zinc-900 dark:hover:text-white transition-colors"
-                  >About</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  class="hover:text-zinc-900 dark:hover:text-white transition-colors"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4
-              class="text-xs font-semibold uppercase tracking-wider text-zinc-900 dark:text-white mb-3"
-            >
-              Academic
-            </h4>
-            <ul class="space-y-1 text-xs text-zinc-500">
-              <li>Course: Web Technologies / CSE-3532</li>
-              <li>Outcome: Fulfilling CO2</li>
-              <li>Tech: HTML5, Tailwind, JS DOM</li>
-              <li>API: FakeStore API</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4
-              class="text-xs font-semibold uppercase tracking-wider text-zinc-900 dark:text-white mb-3"
-            >
-              Contact
-            </h4>
-            <ul class="space-y-1.5 text-xs text-zinc-500">
-              <li>University Lab, Dept of CSE</li>
-              <li>support@smartshop.edu.bd</li>
-              <li>+880 1700-000000</li>
-            </ul>
+            <button method="dialog" id="confirm-topup-btn"
+              class="btn w-full bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-white text-white dark:text-zinc-900 font-semibold rounded-xl text-xs transition-all border-none">
+              Add to Wallet
+            </button>
           </div>
         </div>
+        <form method="dialog" class="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
+    </article>
+    <!-- cart products right side drawer -->
+    <div class="drawer drawer-end">
+      <!-- Drawer Toggle Checkbox -->
+      <input id="my-drawer-5" type="checkbox" class="drawer-toggle" />
 
-        <div
-          class="mt-10 pt-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400"
-        >
-          <p>© 2026 SmartShop. Scandinavian Minimalist E-Commerce.</p>
-          <p>Built for CSE-3532 Assessment</p>
+      <!-- Drawer Content -->
+      <div class="drawer-content"></div>
+
+      <!-- Drawer Sidebar -->
+      <div class="drawer-side z-60">
+        <label for="my-drawer-5" aria-label="Close shopping cart" class="drawer-overlay"></label>
+
+        <div class="menu bg-base-200 text-base-content min-h-full w-120 p-4">
+          <div class="flex justify-between items-center mb-5">
+            <h2 class="text-xl font-bold">Shopping Cart</h2>
+
+            <label for="my-drawer-5" class="btn btn-sm btn-circle btn-ghost" aria-label="Close cart">
+              ✕
+            </label>
+          </div>
+
+          <!-- Cart Products -->
+
+          write your code here
+
+
+
+
+          <button id="checkout-btn" type="button" class="btn btn-neutral w-full rounded-xl">
+            Checkout
+          </button>
         </div>
       </div>
-    </footer>
-    <!-- Main JavaScript File -->
-    <script src="./app.js"></script>
-  </body>
+    </div>
+    </div>
+
+    <!-- Banner -->
+    <section id="home" class="Offer_Section pt-25">
+      <div id="Offer_Banner" class=" relative max-w-300 mx-auto rounded-2xl overflow-hidden"></div>
+    </section>
+  </header>
+
+  <main>
+    <!-- products -->
+    <section id="products" class="pt-20 max-w-300 mx-auto">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-zinc-200  mb-8">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold tracking-tight ">Curated
+            Collection</h2>
+          <p class="text-xs text-zinc-500  mt-1">Live items streamed from FakeStore API (1 USD ≈ 120
+            BDT).</p>
+        </div>
+
+        <!-- Search & Sort -->
+        <div class="flex flex-wrap items-center gap-2.5">
+          <div class="relative min-w-50 flex-1 sm:flex-initial">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 text-xs"></i>
+            <input type="text" id="search-input" placeholder="Search catalog..."
+              class="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl bg-white border border-zinc-200 dark:border-zinc-800 text-zinc-900  placeholder:text-zinc-400  transition-colors">
+          </div>
+
+          <select id="sort-select"
+            class="px-3 py-1.5 text-xs rounded-xl bg-white border border-zinc-200 text-zinc-700  font-medium focus:outline-none">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+          </select>
+        </div>
+      </div>
+      <!-- Product Grid -->
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
+    </section>
+    <!-- reviews -->
+    <section></section>
+    <!-- about -->
+    <section class="w-full border-y border-base-300 bg-base-100 px-5 py-14 sm:px-8 lg:px-10">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <!-- Left Side -->
+        <div>
+          <p class="mb-2 text-xs font-semibold tracking-widest text-base-content/50">
+            ABOUT THE PROJECT
+          </p>
+
+          <h2 class="mb-4 max-w-md text-2xl font-bold leading-tight tracking-tight text-base-content sm:text-3xl">
+            Minimalism Meets Robust DOM Architecture.
+          </h2>
+
+          <p class="mb-3 text-sm leading-6 text-base-content/70">
+            SmartShop is developed for
+            <span class="font-bold text-base-content">
+              CSE-3532 (Tools & Technologies for Internet Programming)
+            </span>
+            fulfilling Course Outcome 2 (CO2). Built purely with semantic
+            HTML5, utility-first Tailwind CSS, and reactive Vanilla JavaScript
+            DOM semantics.
+          </p>
+
+          <p class="mb-5 text-sm leading-5 text-base-content/70">
+            Zero heavy external JS frameworks, zero ad-hoc raw CSS files, and
+            100% responsive client-side state synchronized to browser
+            LocalStorage.
+          </p>
+
+          <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div class="rounded-2xl border border-base-300 bg-base-200/50 p-3">
+              <h3 class="mb-1 text-sm font-bold text-base-content">
+                Client-Side Logic
+              </h3>
+              <p class="text-xs leading-4 text-base-content/60">
+                Real-time calculations without page reloads
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-base-300 bg-base-200/50 p-3">
+              <h3 class="mb-1 text-sm font-bold text-base-content">
+                REST API Feed
+              </h3>
+              <p class="text-xs leading-4 text-base-content/60">
+                Asynchronous FakeStore API ingestion
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="rounded-3xl border border-base-300 bg-base-100 p-6 sm:p-7">
+          <h3 class="mb-4 text-sm font-bold text-base-content sm:text-base">
+            Project Development Team
+          </h3>
+
+          <div class="space-y-2.5">
+
+            <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
+              <div
+                class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neutral text-xs font-bold text-neutral-content">
+                01
+              </div>
+
+              <div>
+                <h4 class="text-xs font-bold text-base-content">
+                  Core DOM Architecture
+                </h4>
+                <p class="text-xs leading-4 text-base-content/60">
+                  HTML5 semantic layout & Tailwind CSS styling
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
+              <div
+                class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neutral text-xs font-bold text-neutral-content">
+                02
+              </div>
+
+              <div>
+                <h4 class="text-xs font-bold text-base-content">
+                  API & State Engine
+                </h4>
+                <p class="text-xs leading-4 text-base-content/60">
+                  Fetch API, LocalStorage, and balance restriction logic
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
+              <div
+                class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neutral text-xs font-bold text-neutral-content">
+                03
+              </div>
+
+              <div>
+                <h4 class="text-xs font-bold text-base-content">
+                  Interactive Components
+                  suqgsd
+                </h4>
+                <p class="text-xs leading-4 text-base-content/60">
+                  Sliding carousels, form validation, and dark mode
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions -->
+    <section class="w-full bg-base-200 px-4 pt-14 pb-24">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="mb-8 text-center text-xl font-bold text-base-content sm:text-2xl">
+          Frequently Asked Questions
+        </h2>
+        <div class="collapse collapse-arrow mb-2 rounded-2xl border border-base-300 bg-base-100">
+          <input type="checkbox" />
+          <div class="collapse-title text-sm font-semibold">
+            How does the user balance limit work?
+          </div>
+          <div class="collapse-content text-sm leading-6 text-base-content/70">
+            The user balance limit determines the maximum amount a user can
+            hold in their account at a time.
+          </div>
+        </div>
+        <div class="collapse collapse-arrow mb-2 rounded-2xl border border-base-300 bg-base-100">
+          <input type="checkbox" />
+          <div class="collapse-title text-sm font-semibold">
+            Which coupon is valid?
+          </div>
+          <div class="collapse-content text-sm leading-6 text-base-content/70">
+            You can apply a valid coupon during checkout to receive the
+            available discount. Make sure the coupon has not expired.
+          </div>
+        </div>
+        <div class="collapse collapse-arrow rounded-2xl border border-base-300 bg-base-100">
+          <input type="checkbox" />
+          <div class="collapse-title text-sm font-semibold">
+            What are the delivery charges?
+          </div>
+          <div class="collapse-content text-sm leading-6 text-base-content/70">
+            Delivery charges depend on your delivery location and the
+            applicable shipping policy.
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- contact -->
+
+    <section class="w-full bg-base-100 px-4 py-16">
+      <div class="text-center mb-9">
+        <p class="text-xs font-semibold tracking-widest text-gray-400 mb-2">
+          GET IN TOUCH
+        </p>
+        <h2 class="text-2xl font-bold text-base-content">Direct Message</h2>
+      </div>
+      <!-- Contact Form -->
+      <div class="flex justify-center items-center">
+        <form id="contact-form" class="w-full max-w-md rounded-3xl border border-base-300 bg-base-100 p-7 sm:p-8">
+          <label class="label mb-1">
+            <span class="label-text text-xs font-semibold">YOUR NAME</span>
+          </label>
+
+          <input type="text" name="name" placeholder="Full name"
+            class="input input-bordered w-full rounded-xl bg-base-200 border-base-300" required />
+          <label class="label mt-3 mb-1">
+            <span class="label-text text-xs font-semibold">EMAIL</span>
+          </label>
+
+          <input type="email" name="email" placeholder="email@address.com"
+            class="input input-bordered w-full rounded-xl bg-base-200 border-base-300" required />
+          <label class="label mt-3 mb-1">
+            <span class="label-text text-xs font-semibold">MESSAGE</span>
+          </label>
+
+          <textarea id="message" name="message" placeholder="How can we assist you?" rows="4"
+            class="textarea textarea-bordered w-full min-h-24 rounded-xl bg-base-200 border-base-300 px-3 py-3 text-sm resize-y"
+            required></textarea>
+          <button id="submit-btn" type="submit" class="btn btn-neutral mt-4 w-full rounded-xl">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <!-- footer    -->
+  <footer class="mt-auto bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center gap-2">
+            <div
+              class="w-7 h-7 rounded-lg bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center font-bold text-xs">
+              S
+            </div>
+            <span class="font-display font-extrabold text-base text-zinc-900 dark:text-white">SmartShop.</span>
+          </div>
+          <p class="mt-2.5 text-xs text-zinc-500 leading-relaxed">
+            Minimalist e-commerce application developed for CSE-3532 Web
+            Technologies Lab.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-zinc-900 dark:text-white mb-3">
+            Links
+          </h4>
+          <ul class="space-y-1.5 text-xs text-zinc-500">
+            <li>
+              <a href="#home" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Home</a>
+            </li>
+            <li>
+              <a href="#products" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Products</a>
+            </li>
+            <li>
+              <a href="#reviews" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Reviews</a>
+            </li>
+            <li>
+              <a href="#about" class="hover:text-zinc-900 dark:hover:text-white transition-colors">About</a>
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-zinc-900 dark:text-white mb-3">
+            Academic
+          </h4>
+          <ul class="space-y-1 text-xs text-zinc-500">
+            <li>Course: Web Technologies / CSE-3532</li>
+            <li>Outcome: Fulfilling CO2</li>
+            <li>Tech: HTML5, Tailwind, JS DOM</li>
+            <li>API: FakeStore API</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-zinc-900 dark:text-white mb-3">
+            Contact
+          </h4>
+          <ul class="space-y-1.5 text-xs text-zinc-500">
+            <li>University Lab, Dept of CSE</li>
+            <li>support@smartshop.edu.bd</li>
+            <li>+880 1700-000000</li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="mt-10 pt-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
+        <p>© 2026 SmartShop. Scandinavian Minimalist E-Commerce.</p>
+        <p>Built for CSE-3532 Assessment</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Main JavaScript File -->
+  <script src="./app.js"></script>
+</body>
+
 </html>
