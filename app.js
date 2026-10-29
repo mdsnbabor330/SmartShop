@@ -2,13 +2,19 @@ const navLinks = document.querySelectorAll(".navlink");
 
 let userBalance = 10000;
 let products = [];
-let cart=[];
+
 
 if (localStorage.getItem("smartshop_balance")) {
   userBalance = Number(localStorage.getItem("smartshop_balance"));
 }
 function saveBalance() {
   localStorage.setItem("smartshop_balance", userBalance);
+}
+ 
+let cart = JSON.parse(localStorage.getItem("smartshop_cart")) || [];
+
+function saveCart() {
+  localStorage.setItem("smartshop_cart", JSON.stringify(cart));
 }
 
 if (localStorage.getItem("smartshop_balance")) {
@@ -110,16 +116,16 @@ function offerBannerCard(data) {
   <div class="absolute inset-0 bg-black/60"></div>
 
   <!-- Text Content -->
-  <div class="absolute inset-0 z-10 flex flex-col justify-center px-12 text-white">
+  <div class="absolute inset-0 z-10 max-w-280 mx-auto flex flex-col justify-center px-12 text-white">
        <div class="offer-Text"> 
        <div class="banner-status flex justify-items-center items-center gap-2 mb-4">
            <div class="inline-grid *:[grid-area:1/1]">
-           <div class="status status-error animate-ping"></div>
-             <div class="status status-error"></div>
+           <div class="status status-success animate-ping"></div>
+             <div class="status status-success"></div>
       </div>
       <h5 class="uppercase tracking-widest text-sm"> ${banner.category}</h5> 
       </div>
-      <h1 class="text-6xl font-bold p-4">${banner.title}</h1>
+      <h1 class="text-6xl font-bold mb-5">${banner.title}</h1>
           <p class="banner-description text-lg font-normal pb-4">${banner.description}</p>
           <button class="banner-button btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl rounded-4xl">${banner.buttonText}</button>
        
@@ -248,6 +254,40 @@ const displayProducts = (products) => {
     productGrid.appendChild(card);
   }
 };
+
+function updateCartCount() {
+  document.getElementById("cart-count").textContent = cart.length;
+}
+
+updateCartCount();
+
+
+function addToCart(id) {
+  const product = products.find((p) => p.id === id);
+
+  if (product) {
+    cart.push(product);
+
+    saveCart();
+    updateCartCount();
+
+    console.log("Cart Data:", cart);
+  }
+
+  displayCartProduct(cart);
+}
+
+const displayCartProduct=(cart)=>{
+    // write your code here
+}
+
+
+
+
+
+
+
+
 
 
 
