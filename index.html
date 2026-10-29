@@ -150,6 +150,7 @@
                 (BDT)</label>
               <div class="relative">
                 <span class="absolute left-3.5 top-1/2 -translate-y-1/2 font-medium text-zinc-400 text-sm">৳</span>
+                <input type="number" id="topup-amount-input" min="100" max="50000" step="100" placeholder="1000"
                 <input type="number" id="topup-amount-input" min="100" max="50000" step="100"
                   placeholder="Add Your Amount"
                   class="input input-bordered w-full pl-8 pr-4 py-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white font-semibold text-sm focus:outline-none" />
@@ -189,6 +190,113 @@
           </div>
 
           <!-- Cart Products -->
+
+          <!-- Cart Products -->
+          <div class="flex min-h-0 flex-1 flex-col">
+
+            <!-- Wallet Balance -->
+            <div class="mb-4 flex items-center justify-between rounded-2xl
+              border border-base-300 bg-base-100 p-4">
+
+              <div>
+                <p class="text-xs text-base-content/50">WALLET BALANCE</p>
+                <p id="wallet-balance" class="mt-1 text-lg font-bold">৳ 21000</p>
+              </div>
+
+              <button type="button" id="top-up-btn" class="btn btn-sm btn-outline rounded-xl">
+                + Top Up
+              </button>
+            </div>
+
+            <!-- Product List -->
+            <div id="cart-products" class="flex-1 space-y-3 overflow-y-auto pb-4">
+
+              <!-- Product 1 -->
+              <div class="cart-item flex items-center gap-3 rounded-2xl
+                border border-base-300 bg-base-100 p-3" data-price="13438">
+
+                <div class="flex size-16 shrink-0 items-center justify-center
+                  overflow-hidden rounded-xl bg-base-200">
+                  <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" alt="Men's jacket"
+                    class="h-full w-full object-contain p-1" />
+                </div>
+
+                <div class="min-w-0 flex-1">
+                  <h3 class="line-clamp-2 text-sm font-semibold">
+                    Mens Cotton Jacket
+                  </h3>
+
+                  <p class="item-price mt-1 text-sm font-bold">৳ 13438</p>
+
+                  <div class="mt-2 flex items-center gap-2">
+
+                    <div class="flex h-7 items-center overflow-hidden rounded-lg
+                      border border-base-300">
+                      <button type="button" class="qty-decrease px-2 hover:bg-base-200">−</button>
+
+                      <span class="quantity px-2 text-xs">2</span>
+
+                      <button type="button" class="qty-increase px-2 hover:bg-base-200">+</button>
+                    </div>
+
+                    <button type="button" class="remove-item text-xs text-error hover:underline">
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="shrink-0 border-t border-base-300 pt-4">
+
+              <!-- Coupon -->
+              <div class="mb-4 flex gap-2">
+                <input id="coupon-input" type="text" placeholder="Coupon code (SMART10)" class="input input-bordered h-10 min-w-0 flex-1 rounded-xl
+               bg-base-100 text-xs" />
+
+                <button id="apply-coupon" type="button" class="btn btn-neutral btn-sm h-10 rounded-xl px-4">
+                  Apply
+                </button>
+              </div>
+
+              <p id="cart-message" class="mb-2 hidden text-xs" role="status"></p>
+
+              <!-- Price Details -->
+              <div class="space-y-2 text-sm">
+
+                <div class="flex justify-between">
+                  <span class="text-base-content/60">Subtotal</span>
+                  <span id="subtotal" class="font-semibold">৳ 0</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <span class="text-base-content/60">Delivery fee</span>
+                  <span id="delivery-fee" class="font-semibold">৳ 60</span>
+                </div>
+
+                <div class="flex justify-between">
+                  <span class="text-base-content/60">Handling</span>
+                  <span class="font-semibold">FREE</span>
+                </div>
+
+                <div class="flex justify-between border-t border-base-300
+                  pt-3 text-base font-bold">
+                  <span>Total</span>
+                  <span id="total">৳ 0</span>
+                </div>
+              </div>
+
+              <!-- Clear Bag -->
+              <button id="clear-bag" type="button" class="mt-3 w-full py-1 text-sm text-base-content/50
+             hover:text-error">
+                Clear Bag
+              </button>
+
+
+            </div>
+          </div>
 
           write your code here
 
@@ -245,7 +353,7 @@
     <section></section>
     <!-- about -->
     <section class="w-full border-y border-base-300 bg-base-100 px-5 py-14 sm:px-8 lg:px-10">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div class="mx-auto grid max-w-300 grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <!-- Left Side -->
         <div>
           <p class="mb-2 text-xs font-semibold tracking-widest text-base-content/50">
@@ -317,6 +425,7 @@
               </div>
             </div>
 
+            <!-- Item 2 -->
             <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
               <div
                 class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neutral text-xs font-bold text-neutral-content">
@@ -333,7 +442,8 @@
               </div>
             </div>
 
-            <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
+            <!-- Item 3 -->
+               <div class="flex items-center gap-3 rounded-2xl border border-base-300 bg-base-200/40 p-2.5">
               <div
                 class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neutral text-xs font-bold text-neutral-content">
                 03

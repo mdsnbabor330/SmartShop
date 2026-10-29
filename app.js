@@ -317,6 +317,15 @@ const displayCartProduct = (cart) => {
   // write your code here
 };
 
+
+
+
+
+
+
+
+
+
 // Contact Form
 const contactForm = document.getElementById("contact-form");
 const submitBtn = document.getElementById("submit-btn");
