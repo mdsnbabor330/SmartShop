@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Tanvir Ahmed",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+    "rating": 5,
+    "comment": "Absolutely phenomenal experience with SmartShop! Delivery took under 24 hours in Dhaka and product packaging was top notch.",
+    "date": "2026-10-15"
+  },
+  {
+    "id": 2,
+    "name": "Nusrat Jahan",
+    "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
+    "rating": 5,
+    "comment": "Great prices and seamless checkout. The balance top-up feature and SMART10 coupon worked smoothly. Will definitely order again!",
+    "date": "2026-10-18"
+  },
+  {
+    "id": 3,
+    "name": "Rafiqul Islam",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    "rating": 4,
+    "comment": "Good quality original merchandise. The search and filter options made it super easy to find my electronics.",
+    "date": "2026-10-21"
+  },
+  {
+    "id": 4,
+    "name": "Sadia Rahman",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+    "rating": 5,
+    "comment": "Loved the dark mode toggle and real-time cart bill calculator. One of the cleanest shopping platforms I've seen.",
+    "date": "2026-10-25"
+  },
+  {
+    "id": 5,
+    "name": "Mahmudul Hasan",
+    "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+    "rating": 5,
+    "comment": "Top tier customer service and quick resolution on queries. Authentic FakeStore items delivered reliably.",
+    "date": "2026-10-27"
+  }
+]
