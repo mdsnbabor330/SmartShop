@@ -22,10 +22,11 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
+
   <body class="min-h-screen w-full">
     <header class="w-full">
       <!-- Navbar -->
-      <nav class="fixed z-11 top-0 bg-amber-50 shadow w-full">
+      <nav class="fixed z-11 top-0 bg-white shadow w-full">
         <div
           class="navbar max-w-310 mx-auto bg-transparent p-4 px-7 flex items-center justify-between gap-3"
         >
@@ -294,10 +295,59 @@
       <!-- Frequently Asked Questions -->
       <section></section>
       <!-- contact -->
-      <section></section>
+
+      <section class="w-full bg-base-100 px-4 py-16">
+        <div class="text-center mb-9">
+          <p class="text-xs font-semibold tracking-widest text-gray-400 mb-2">
+            GET IN TOUCH </p>
+          <h2 class="text-2xl font-bold text-base-content">Direct Message</h2>
+        </div>
+        <!-- Contact Form -->
+        <div class="flex justify-center items-center">
+          <form id="contact-form" class="w-full max-w-md rounded-3xl border border-base-300 bg-base-100 p-7 sm:p-8">
+            <label class="label mb-1">
+              <span class="label-text text-xs font-semibold">YOUR NAME</span>
+            </label>
+
+            <input
+              type="text"
+              name="name"
+              placeholder="Full name"
+              class="input input-bordered w-full rounded-xl bg-base-200 border-base-300"
+              required
+            />
+            <label class="label mt-3 mb-1">
+              <span class="label-text text-xs font-semibold">EMAIL</span>
+            </label>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="email@address.com"
+              class="input input-bordered w-full rounded-xl bg-base-200 border-base-300"
+              required
+            />
+            <label class="label mt-3 mb-1">
+              <span class="label-text text-xs font-semibold">MESSAGE</span>
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              placeholder="How can we assist you?"
+              rows="4"
+              class="textarea textarea-bordered w-full min-h-24 rounded-xl bg-base-200 border-base-300 px-3 py-3 text-sm resize-y"
+              required
+            ></textarea>
+            <button id="submit-btn" type="submit" class="btn btn-neutral mt-4 w-full rounded-xl">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
     </main>
     <!-- footer    -->
-    <footer
+   <footer
       class="mt-auto bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 transition-colors"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -401,7 +451,7 @@
         </div>
       </div>
     </footer>
-    <!-- Main JavaScript File -->
+     Main JavaScript File
     <script src="./app.js"></script>
   </body>
 </html>
