@@ -57,3 +57,32 @@ body {
 .slider-btn:hover {
   background: rgba(0,0,0,0.8);
 }
+.review-card {
+  display: none;
+  width: 100%;
+}
+
+.review-card.active {
+  display: block;
+}
+
+.slider-btn2 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: white;
+  border: 1px solid #ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.prev-btn2 {
+  left: 10px;
+}
+
+.next-btn2 {
+  right: 10px;
+}
