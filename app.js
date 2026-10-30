@@ -15,7 +15,8 @@ function showToast(message, type) {
   if (type === "warning") alertClass = "alert-warning";
   if (type === "info") alertClass = "alert-info";
 
-  toast.className = "alert " + alertClass + " text-sm shadow-lg pointer-events-auto";
+  toast.className =
+    "alert " + alertClass + " text-sm shadow-lg pointer-events-auto";
 
   toast.innerHTML = "<span>" + message + "</span>";
 
@@ -497,7 +498,8 @@ document.getElementById("apply-coupon").addEventListener("click", () => {
   const code = couponInput.value.trim().toUpperCase();
 
   if (cart.length === 0) {
-    cartMessage.textContent = "Please add items to cart before applying coupon!";
+    cartMessage.textContent =
+      "Please add items to cart before applying coupon!";
     cartMessage.className = "mb-2 text-xs text-error block";
     return;
   }
@@ -552,7 +554,10 @@ document.getElementById("clear-bag").addEventListener("click", () => {
 // Checkout button
 document.getElementById("checkout-btn").addEventListener("click", () => {
   if (cart.length === 0) {
-    showToast("Your cart is empty! Please add products before checkout.", "warning");
+    showToast(
+      "Your cart is empty! Please add products before checkout.",
+      "warning",
+    );
     return;
   }
 
@@ -567,8 +572,11 @@ document.getElementById("checkout-btn").addEventListener("click", () => {
   // Check user balance limit / available funds
   if (userBalance < total) {
     showToast(
-      "Insufficient balance! Total ৳ " + total +
-      ", wallet ৳ " + userBalance + ". Please top up.",
+      "Insufficient balance! Total ৳ " +
+        total +
+        ", wallet ৳ " +
+        userBalance +
+        ". Please top up.",
       "error",
     );
     displayModal();
@@ -580,7 +588,10 @@ document.getElementById("checkout-btn").addEventListener("click", () => {
   saveBalance();
   updateBalanceDisplay();
 
-  showToast("Order placed successfully! ৳ " + total + " deducted from your wallet.", "success");
+  showToast(
+    "Order placed successfully! ৳ " + total + " deducted from your wallet.",
+    "success",
+  );
 
   // Reset cart and coupon
   cart = [];
