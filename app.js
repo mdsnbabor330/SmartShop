@@ -1,3 +1,4 @@
+
 const navLinks = document.querySelectorAll(".navlink");
 
 let userBalance = 10000;
@@ -14,13 +15,6 @@ let cart = JSON.parse(localStorage.getItem("smartshop_cart")) || [];
 
 function saveCart() {
   localStorage.setItem("smartshop_cart", JSON.stringify(cart));
-}
-
-if (localStorage.getItem("smartshop_balance")) {
-  userBalance = Number(localStorage.getItem("smartshop_balance"));
-}
-function saveBalance() {
-  localStorage.setItem("smartshop_balance", userBalance);
 }
 
 // Active navbar link
@@ -47,6 +41,7 @@ const updateBalanceDisplay = () => {
     balanceTxt;
 
   document.getElementById("modal-current-balance").textContent = balanceTxt;
+  document.getElementById("wallet-balance").textContent = balanceTxt;
 };
 
 updateBalanceDisplay();
@@ -79,6 +74,7 @@ document.getElementById("confirm-topup-btn").addEventListener("click", () => {
 
   document.getElementById("add-money-modal").close();
 });
+
 //Banner Function
 const URL = "./Public/bannerCardData.json";
 
@@ -91,6 +87,7 @@ const fetchOfferBanner = async () => {
 };
 
 fetchOfferBanner();
+
 function offerBannerCard(data) {
   const Offer_Banners = document.getElementById("Offer_Banner");
 
@@ -254,29 +251,175 @@ const displayProducts = (products) => {
   }
 };
 
+// SEARCH & SORT products
+
+function filterProducts() {
+  let searchText = document
+    .getElementById("search-input")
+    .value.toLowerCase()
+    .trim();
+
+  let sortType = document.getElementById("sort-select").value;
+
+  let filtered = [...products];
+
+  // 2. Filter by search text
+  if (searchText !== "") {
+    filtered = filtered.filter(
+      (p) =>
+        p.title.toLowerCase().includes(searchText) ||
+        p.category.toLowerCase().includes(searchText),
+    );
+  }
+
+  // 3. Sort products
+  if (sortType === "price-asc") {
+    filtered.sort((a, b) => a.priceBDT - b.priceBDT);
+  } else if (sortType === "price-desc") {
+    filtered.sort((a, b) => b.priceBDT - a.priceBDT);
+  } else if (sortType === "name-asc") {
+    filtered.sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  displayProducts(filtered);
+}
+
+document.getElementById("search-input").oninput = filterProducts;
+document.getElementById("sort-select").onchange = filterProducts;
+
+//updateCartCount
 function updateCartCount() {
-  document.getElementById("cart-count").textContent = cart.length;
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+
+  document.getElementById("cart-count").textContent = totalItems;
 }
 
 updateCartCount();
+displayCartProduct(cart);
+
+//add to cart product
 
 function addToCart(id) {
   const product = products.find((p) => p.id === id);
 
-  if (product) {
-    cart.push(product);
+  if (!product) return;
 
-    saveCart();
-    updateCartCount();
+  const existingProduct = cart.find((item) => item.id === id);
 
-    console.log("Cart Data:", cart);
+  if (existingProduct) {
+    existingProduct.quantity += 1;
+  } else {
+    cart.push({
+      ...product,
+      quantity: 1,
+    });
   }
 
+  saveCart();
+  updateCartCount();
   displayCartProduct(cart);
 }
 
 const displayCartProduct = (cart) => {
   // write your code here
+document.getElementById("top-up-btn").addEventListener("click", () => {
+  displayModal();
+});
+
+function displayCartProduct(cart) {
+  const cartProducts = document.getElementById("cart-products");
+
+  cartProducts.innerHTML = "";
+
+  cart.forEach((c) => {
+    const cartCard = document.createElement("div");
+
+    cartCard.className =
+      "cart-item flex items-center gap-3 rounded-2xl border border-base-300 bg-base-100 p-3";
+
+    cartCard.innerHTML = `
+      <div class="flex size-16 shrink-0 items-center justify-center
+        overflow-hidden rounded-xl bg-base-200">
+
+        <img src="${c.image}" alt="${c.category}"
+          class="h-full w-full object-contain p-1" />
+      </div>
+
+      <div class="min-w-0 flex-1">
+        <h3 class="line-clamp-2 text-sm font-semibold">
+          ${c.title}
+        </h3>
+
+        <p class="item-price mt-1 text-sm font-bold">
+          ৳ ${c.priceBDT * c.quantity}
+        </p>
+
+        <div class="mt-2 flex items-center gap-2">
+
+          <div class="flex h-7 items-center overflow-hidden rounded-lg
+            border border-base-300">
+
+            <button type="button" 
+              class="qty-decrease px-2 hover:bg-base-200 cursor-pointer">
+              -
+            </button>
+
+            <span class="quantity px-2 text-xs">
+              ${c.quantity}
+            </span>
+
+            <button type="button" 
+              class="qty-increase px-2 hover:bg-base-200 cursor-pointer">
+              +
+            </button>
+
+          </div>
+
+          <button type="button" onclick="removeFromCart(${c.id})"
+            class=" text-xs text-error hover:underline">
+            Remove
+          </button>
+
+        </div>
+      </div>
+    `;
+
+    // Increase quantity
+    cartCard.querySelector(".qty-increase").addEventListener("click", () => {
+      updateQuantity(c.id, 1);
+    });
+
+    // Decrease quantity
+    cartCard.querySelector(".qty-decrease").addEventListener("click", () => {
+      updateQuantity(c.id, -1);
+    });
+
+    cartProducts.appendChild(cartCard);
+  });
+}
+
+function updateQuantity(id, change) {
+  const product = cart.find((item) => item.id === id);
+
+  if (!product) return;
+
+  product.quantity += change;
+
+  if (product.quantity <= 0) {
+    removeFromCart(id);
+    return;
+  }
+
+  saveCart();
+  updateCartCount();
+  displayCartProduct(cart);
+}
+
+const removeFromCart = (id) => {
+  cart = cart.filter((c) => c.id !== id);
+  saveCart();
+  updateCartCount();
+  displayCartProduct(cart);
 };
 
 // Contact Form
@@ -294,8 +437,10 @@ contactForm.addEventListener("submit", function (event) {
     alert("Please fill in all fields!");
     return;
   }
-  contactForm.reset();
+
   submitBtn.textContent = "Submitted";
+  contactForm.reset();
+  window.location.reload();
 });
 
 // Review Banner 
