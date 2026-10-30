@@ -320,6 +320,8 @@ function addToCart(id) {
   displayCartProduct(cart);
 }
 
+const displayCartProduct = (cart) => {
+  // write your code here
 document.getElementById("top-up-btn").addEventListener("click", () => {
   displayModal();
 });
@@ -440,3 +442,106 @@ contactForm.addEventListener("submit", function (event) {
   contactForm.reset();
   window.location.reload();
 });
+
+// Review Banner 
+const reviewURL = "./Public/reviews.json";
+
+// console.log(Offer_Banner);
+const fetchReviewBanner = async () => {
+  console.log("Fetching Review Banner Data...");
+  let response = await fetch(reviewURL);
+  let data = await response.json();
+  ReviewCard(data);
+};
+
+fetchReviewBanner();
+function ReviewCard(data) {
+  const Review_Banners = document.getElementById("Review_Banner");
+
+  data.forEach((review) => {
+    const Banner = document.createElement("div");
+
+    Banner.classList.add("review-card");
+
+    Banner.innerHTML = `
+      <div class="bg-gray banner-content relative w-full h-full flex flex-col items-center justify-center">
+      <div class="bg-white border border-indigo-500 p-5  w-9/12 h-full rounded-2xl object-cover">
+
+  <!-- Text Content -->
+          <div class="bg-white banner-Content flex flex-col items-center justify-center">
+          <p class="w-8/12 banner-description text-lg font-normal p-4">${review.comment}</p>
+          <div class="reviewer flex items-center gap-3">
+    <img
+      src="${review.avatar}"
+      alt="${review.name}"
+      class="w-12 h-12 rounded-full object-cover">
+    <p class="reviewer-name text-sm font-semibold">
+      ${review.name}
+    </p>
+</div>    <div class="date-&-rating w-full flex justify-between">
+          <p><b>Rating:  ⭐ ${review.rating} Star</b></p>
+          <p><b>Date: </b> ${review.date}</p>
+          
+          </div>
+        </div>
+       </div>
+      
+    `;
+
+    Review_Banners.appendChild(Banner);
+  });
+
+  Review_Banners.insertAdjacentHTML(
+    "beforeend",
+    `
+    <button class="slider-btn2 prev-btn2">❮</button>
+    <button class="slider-btn2 next-btn2">❯</button>
+    `,
+  );
+
+  startReviewSlider();
+}
+// Review Slider Function
+function startReviewSlider() {
+  const slides = document.querySelectorAll(".review-card");
+
+  if (!slides.length) return;
+
+  const prevBtn2 = document.querySelector(".prev-btn2");
+  const nextBtn2 = document.querySelector(".next-btn2");
+  const bannerContainer = document.getElementById("Review_Banner");
+
+  let current = 0;
+
+  slides[current].classList.add("active");
+
+  function showSlide(index) {
+    slides[current].classList.remove("active");
+
+    current = (index + slides.length) % slides.length;
+
+    slides[current].classList.add("active");
+  }
+
+  let autoSlide = setInterval(() => {
+    showSlide(current + 1);
+  }, 3000);
+
+  nextBtn2.addEventListener("click", () => {
+    showSlide(current + 1);
+  });
+
+  prevBtn2.addEventListener("click", () => {
+    showSlide(current - 1);
+  });
+
+  bannerContainer.addEventListener("mouseenter", () => {
+    clearInterval(autoSlide);
+  });
+
+  bannerContainer.addEventListener("mouseleave", () => {
+    autoSlide = setInterval(() => {
+      showSlide(current + 1);
+    }, 3000);
+  });
+}}
