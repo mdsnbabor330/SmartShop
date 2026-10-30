@@ -544,4 +544,4 @@ function startReviewSlider() {
       showSlide(current + 1);
     }, 3000);
   });
-}
+}}
